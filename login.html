@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<body>
+    <h1>Welcome to Your Application</h1>
+    <!-- Your login form -->
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            
+            // Perform login validation here (e.g., check username and password)
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            
+            // For demonstration purposes, let's assume the login is successful
+            var isLoggedIn = true;
+
+            if (isLoggedIn) {
+                // Redirect to the dashboard page upon successful login
+                window.location.href = "dashboard.html";
+            } else {
+                // Handle login failure (e.g., display error message)
+                alert("Login failed. Please check your username and password.");
+            }
+        });
+    </script>
+</body>
+</html>

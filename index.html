@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore World</title>
+    <div class="heading">
+        <h2 class="explore-heading">WORLD Explore</h2>
+    </div>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .submit-button {
+            background-color: #d8bfd8; /* Light violet */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px; /* Adjust margin as needed */
+        }
+
+        .submit-button:hover {
+            background-color: #ffc0cb; /* Pink */
+        }
+
+        /* Navbar Styles */
+        .navbars {
+            background-color: #333;
+            overflow: hidden;
+            text-align: right; /* Aligns navbar content to the right */
+        }
+
+        .navbars a {
+            display: inline-block; /* Display links horizontally */
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbars a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbars">
+        <a href="#">Home</a>
+        <a href="/aboutUs.html" onclick="handleAboutClick(event)">About</a>
+        <a href="/aboutUs.html">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div id="hero">
+       
+        <div class="container">
+            <div class="info">
+                <h1>LOGIN</h1>
+                <form action="#" method="POST">
+                    <div class="input-group">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+                        <br> <br>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="submit-button">Login</button> <!-- This is your button -->
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="slider">
+        <img src="left-arrow.png" id="prev">
+        <div class="preview">
+            <img src="small1.png" class="active thumbnail">
+            <img src="small2.png" class="thumbnail">
+            <img src="small3.png" class="thumbnail">
+        </div>
+        <img src="right-arrow.png" id="next">
+    </div>
+
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+        
+        var backgroundImg = [
+            "bg1.png",
+            "bg2.png",
+            "bg3.png"
+        ];
+        
+        let i = 0;
+        
+        next.addEventListener('click', function() {
+            if (i < 2) { // Adjusted the condition to i < 2
+                hero.style.backgroundImage = 'url("' + backgroundImg[i+1] + '")';
+                thumbnail[i+1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i++;
+            }
+        });
+    
+        prev.addEventListener('click', function() {
+            if (i > 0) {
+                hero.style.backgroundImage = 'url("' + backgroundImg[i-1] + '")';
+                thumbnail[i-1].classList.add("active");
+                thumbnail[i].classList.remove("active");
+                i--;
+            }
+        });
+
+        function handleAboutClick(event) {
+    event.preventDefault(); // Prevents the default behavior of clicking the link
+    alert("The 'About Us' page is not accessible at the moment."); // Show alert message
+}
+    </script>
+</body>
+</html>
